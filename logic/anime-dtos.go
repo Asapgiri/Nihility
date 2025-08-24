@@ -4,7 +4,33 @@ import (
 	"nyarrent/dbase"
 
 	"github.com/er-azh/go-animeschedule"
+	"time"
 )
+
+// copied from as start
+
+// TimetableShow is a single entry in a Timetable
+type TimetableShowOriginal struct {
+	AirType                 animeschedule.AirType           `json:"AirType"`
+	AiringStatus            string            `json:"AiringStatus"`
+	Chinese                 bool              `json:"Chinese"`
+	DelayedFrom             time.Time         `json:"DelayedFrom"`
+	DelayedUntil            time.Time         `json:"DelayedUntil"`
+	English                 *string           `json:"English,omitempty"`
+	EpisodeDate             time.Time         `json:"EpisodeDate"`
+	EpisodeNumber           int               `json:"EpisodeNumber"`
+	Episodes                *int              `json:"Episodes,omitempty"`
+	ImageVersionRoute       string            `json:"ImageVersionRoute"`
+	Japanese                *string           `json:"Japanese,omitempty"`
+	LengthMin               *int              `json:"LengthMin,omitempty"`
+	Romaji                  *string           `json:"Romaji,omitempty"`
+	Route                   string            `json:"Route"`
+	Status                  string            `json:"Status"`
+	SubtractedEpisodeNumber int               `json:"SubtractedEpisodeNumber"`
+	Title                   string            `json:"Title"`
+}
+
+// copied from as end
 
 type AnimeSearchPage struct {
     Page        int
@@ -15,7 +41,7 @@ type AnimeSearchPage struct {
 }
 
 type TimetableShow struct {
-    Anime   animeschedule.TimetableShow
+    Anime   TimetableShowOriginal
     Added   bool
     Filled  bool
     Aired   bool
